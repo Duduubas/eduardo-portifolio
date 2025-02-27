@@ -1,0 +1,22 @@
+/* footer.module.css */
+.iconImage {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    filter: brightness(0) saturate(100%) invert(84%) sepia(19%) saturate(4695%) hue-rotate(359deg) brightness(105%) contrast(104%);
+}
+
+.iconImage:hover {
+    transform: translateY(-3px);
+    opacity: 0.8;
+}
+
+/* header.module */
+.navbarContentButtons{
+    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
+}
+
+
+.navbarContentButtons:hover {
+    background-color: #FFD700;
+    color: #000;
+}

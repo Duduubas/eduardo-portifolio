@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --color-yellow: #FFD700;
+  --color-background: #050505;
+  --color-background-cards: #151515;
+
+  --font-heading: var(--font-oxanium);
+  --font-sans: var(--font-montserrat);
+
+  --radius-xl: 0.625rem;
+}
