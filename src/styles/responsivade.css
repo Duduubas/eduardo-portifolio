@@ -1,0 +1,38 @@
+/* navbar.module.css */
+.navbarContentButtons {
+  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
+}
+
+.navbarContentButtons:hover {
+  background-color: #FFD700;
+  color: #000;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .hamburgerMenu {
+    display: flex;
+  }
+
+  .navbarButtonsWrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    border-bottom: 2px solid #FFD700;
+    display: none;
+  }
+
+  .navbarButtonsWrapper.active {
+    display: flex;
+  }
+
+  .navbarContentButtons {
+    width: 100%;
+  }
+}

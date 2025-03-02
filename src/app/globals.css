@@ -1,12 +1,82 @@
 @import "tailwindcss";
 
 @theme {
-  --color-yellow: #FFD700;
-  --color-background: #050505;
-  --color-background-cards: #151515;
+  --color-*: initial;
+  --color-blue: #007BFF;
+  --color-black: #050505;
+  --color-white: #fafafa;
+  --color-gray: #c9c9c9;
+  --color-cards: #151515;
 
   --font-heading: var(--font-oxanium);
   --font-sans: var(--font-montserrat);
 
   --radius-xl: 0.625rem;
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 3rem; /* Mantém o espaçamento da navbar */
+}
+
+/* Classe para remover scroll APENAS em páginas específicas */
+.no-scroll {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Footer sempre no fim da tela */
+.footer {
+  flex-shrink: 0;
+}
+
+/*Classe para a correção de estilização da página SOBRE*/
+.sobre-page {
+  display: block; /* Remove o flex que centralizava */
+  padding-top: 0; /* Remove o espaçamento extra da navbar */
+}
+
+
+.custom-loader {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  color: #007BFF;
+  background: radial-gradient(farthest-side, currentColor calc(100% - 6px), #0000 calc(100% - 5px) 0);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 13px), #000 calc(100% - 12px));
+  border-radius: 50%;
+  animation: s9 2s infinite linear;
+}
+
+.custom-loader::before,
+.custom-loader::after {    
+  content: "";
+  grid-area: 1/1;
+  background: linear-gradient(currentColor 0 0) center, linear-gradient(currentColor 0 0) center;
+  background-size: 100% 10px, 10px 100%;
+  background-repeat: no-repeat;
+}
+
+.custom-loader::after {
+   transform: rotate(50deg);
+}
+
+@keyframes s9 { 
+  100% { transform: rotate(1turn); }
+}
+

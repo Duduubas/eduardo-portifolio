@@ -1,31 +1,30 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Icon from "@/assets/public/favicon.png"; // Importa a imagem
-import {Montserrat, Oxanium } from 'next/font/google'
-import Footer from "./components/footer";
-import "@/styles/css.module.css"
-import Header from "./components/header";
-
+import Icon from "@/assets/public/favicon.png";
+import { Montserrat, Oxanium } from "next/font/google";
+import Footer from "@/app/components/footer";
+import Header from "@/app/components/header";
+import Providers from "@/app/components/Providers"; // Importa o gerenciador de estado
 
 export const metadata: Metadata = {
-  title: "Duduubas - Portifólio em React",
-  description: "Olá, seja bem-vindo ao meu portfólio em React!",
+  title: "Eduardo B. | Desenvolvedor Front-End",
+  description: "Olá, seja bem-vindo(a) ao meu portifólio!",
   icons: {
-    icon: Icon.src, // Usa o caminho da imagem como string
+    icon: Icon.src,
   },
 };
 
 const oxanium = Oxanium({
-  weight: ['500', '600'],
-  subsets: ['latin'],
-  variable:'--font-oxanium',
-})
+  weight: ["500", "600"],
+  subsets: ["latin"],
+  variable: "--font-oxanium",
+});
 
 const montserrat = Montserrat({
-  weight: ['400', '600'],
-  subsets: ['latin'],
-  variable:'--font-montserrat',
-})
+  weight: ["400", "600"],
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
 
 export default function RootLayout({
   children,
@@ -34,12 +33,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${oxanium.variable} ${montserrat.variable}`}>
-      <body className="bg-background text-yellow">
-        <Header/>
-      <main>
-        {children}
-      </main>
-      <Footer/>
+      <body className="bg-black text-yellow">
+        <Providers> {/* Usa o gerenciador de estado */}
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

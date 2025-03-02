@@ -1,7 +1,7 @@
 /* footer.module.css */
 .iconImage {
+    filter: invert(73%) sepia(1%) saturate(0%) hue-rotate(180deg);
     transition: transform 0.3s ease, opacity 0.3s ease;
-    filter: brightness(0) saturate(100%) invert(84%) sepia(19%) saturate(4695%) hue-rotate(359deg) brightness(105%) contrast(104%);
 }
 
 .iconImage:hover {
@@ -17,6 +17,14 @@
 
 
 .navbarContentButtons:hover {
-    background-color: #FFD700;
-    color: #000;
+    background-color: #007BFF;
+    color: white;
+}
+
+
+  
+.skillIcon {
+    width: 3rem;
+    height: 3rem;
+    filter: invert(31%) sepia(99%) saturate(989%) hue-rotate(198deg) brightness(95%) contrast(101%);
 }
