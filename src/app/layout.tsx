@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${oxanium.variable} ${montserrat.variable}`}>
+    <html lang="pt-BR" className={`${oxanium.variable} ${montserrat.variable}`}>
       <body className="bg-black text-yellow">
         <Providers> {/* Usa o gerenciador de estado */}
           <Header />
