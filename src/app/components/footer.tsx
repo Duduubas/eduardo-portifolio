@@ -16,7 +16,7 @@ export default function Footer(){
                         <a href="https://github.com/Duduubas" target="_blank">
                             <Image className={`w-[32px] h-[32px] cursor-pointer ${styles.iconImage}`} src={GithubIcon} alt="GitHub Icon"/>
                         </a>
-                        <a href="https://linkedin.com/in/Duduubas" target="_blank">
+                        <a href="https://linkedin.com/in/eduardobritoo" target="_blank">
                             <Image className={`w-[32px] h-[32px] cursor-pointer ${styles.iconImage}`} src={LinkedinIcon} alt="LinkedIn Icon"/>
                         </a>
                         <a href="https://discord.com/users/522531030834610211" target="_blank">
@@ -24,8 +24,8 @@ export default function Footer(){
                         </a>
                     </nav>
                     <div className="legal-text text-gray flex flex-col items-start justify-center">
-                        <h3>&copy; Todos os direitos reservados.</h3>
-                        <a href="https://eduardobrito.dev" className="cursor-pointer indent-3">Desenvolvido por Eduardo B.</a>
+                        <h3>&copy; Todos os direitos reservados</h3>
+                        <a href="https://eduardobrito.dev" className="cursor-pointer indent-3">Desenvolvido por <span className="text-blue">Eduardo B.</span></a>
                     </div>
                 </div>
             </div>

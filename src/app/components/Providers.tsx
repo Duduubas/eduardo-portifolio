@@ -1,18 +1,25 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation"; // Importa para detectar mudanças de página
+import { usePathname } from "next/navigation";
 import Loading from "@/app/components/Loading";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
-  const pathname = usePathname(); // Obtém a URL atual
+  const pathname = usePathname();
 
   useEffect(() => {
-    setIsLoading(true); // Ativa o loading ao mudar de página
-    const timer = setTimeout(() => setIsLoading(false), 1500);
+    // Ativa o loading ao mudar de página
+    setIsLoading(true);
+    
+    // Aguarda tempo suficiente para a animação completa
+    // 3800ms é o tempo total da animação no componente Loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3800);
+    
     return () => clearTimeout(timer);
-  }, [pathname]); // Executa sempre que a URL mudar
+  }, [pathname]);
 
   return isLoading ? <Loading /> : <>{children}</>;
 }

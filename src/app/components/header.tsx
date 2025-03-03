@@ -16,7 +16,7 @@ export default function Header() {
             <div className="header-container">
                 <header className="header">
                     <div className="fixed top-0 left-0 w-full bg-black z-[100]">
-                        <div className="fixed top-0 left-0 w-full bg-black z-[100] border-b-2 border-blue-400">
+                        <div className="fixed top-0 left-0 w-full bg-black z-[100]">
                             <nav className="flex justify-between items-center p-4 md:p-[1rem_2rem] max-w-7xl mx-auto">
                                 <div className="navbar__content-nome">
                                     <Link href="/" className="text-[1.3rem] md:text-[1.7rem] font-black text-white font-heading">
@@ -80,7 +80,7 @@ export default function Header() {
                                     </div>
 
                                     <div className="navbar__content-buttons w-full md:w-auto">
-                                        <a href="https://github.com/Duduubas" className="block w-full">
+                                        <a href="/contato" className="block w-full">
                                             <button 
                                                 type="button" 
                                                 className={`
@@ -91,7 +91,7 @@ export default function Header() {
                                                     ${styles.navbarContentButtons}
                                                 `}
                                             >
-                                                <span>Github</span>
+                                                <span>Contato</span>
                                             </button>
                                         </a>
                                     </div>

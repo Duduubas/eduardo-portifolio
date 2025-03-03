@@ -58,7 +58,7 @@ export default function Sobre() {
 
             {/* HardSkills */}
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-blue text-center mb-8">
+              <h1 className="text-3xl font-heading md:text-4xl font-bold text-blue text-center mb-8">
                 Minhas Habilidades
               </h1>
               <div className="grid grid-cols-2 gap-6">
@@ -81,7 +81,7 @@ export default function Sobre() {
                       height={64}
                       className={style.skillIcon} 
                     />
-                    <p className="text-white text-center mt-2 font-semibold">
+                    <p className="text-white font-sans text-center mt-2 font-semibold">
                       {skill.name}
                     </p>
                   </div>
@@ -91,7 +91,7 @@ export default function Sobre() {
 
             {/* SoftSkills */}
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-blue text-center mb-8">
+              <h1 className="text-3xl font-heading md:text-4xl font-bold text-blue text-center mb-8">
                 Minhas Qualidades
               </h1>
               <div className="grid grid-cols-2 gap-6">
@@ -104,7 +104,7 @@ export default function Sobre() {
                   "Adaptabilidade",
                 ].map((skill, index) => (
                   <div key={index} className="bg-cards rounded-xl shadow-md p-4 flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
-                    <p className="text-white font-semibold">{skill}</p>
+                    <p className="text-white font-sans font-semibold">{skill}</p>
                   </div>
                 ))}
               </div>

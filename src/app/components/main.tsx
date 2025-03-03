@@ -51,10 +51,10 @@ export default function Main() {
                         Aplicando responsividade também ao subtítulo, reduzindo o tamanho em telas menores
                         Não há regra específica no CSS para o subtítulo, mas seguindo o padrão
                     */}
-                    <h3 className="text-xl md:text-2xl lg:text-[2.5rem] text-white font-sans mt-2">
+                    <h2 className="text-xl md:text-2xl lg:text-[2.5rem] text-white font-sans mt-2">
                         {typedText}
                         <span className={`ml-1 ${showCursor ? "opacity-100" : "opacity-0"}`}>|</span>
-                    </h3>
+                    </h2>
                 </div>
             </section>
         </main>

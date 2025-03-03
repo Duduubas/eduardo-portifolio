@@ -4,6 +4,8 @@
 import CarryMockup from "@/assets/public/mockup - website_carry.png"
 import JoaoMockup from "@/assets/public/mockup - website_joao.png"
 import DevstageMockup from "@/assets/public/mockup - website_devstage.png"
+import AbstractMockup from "@/assets/public/mockup - website_abstract.png"
+
 
 {/* ---- ICONS DAS LINGUAGENS ---- */ }
 import IconNext from "@/assets/public/icon-nextjs.svg"
@@ -22,6 +24,8 @@ export default function Projetos() {
     {
       id: 1,
       nome: "Carry",
+      tipo: "Landing Page",
+      disponibilidadee: "Disponível para todos os dispósitivos.",
       descricao: "Carry é um bot para Discord desenvolvido para oferecer moderação eficiente e entretenimento interativo, proporcionando uma experiência completa e dinâmica para servidores.",
       imagem: CarryMockup,
       link: "https://carrybot.xyz",
@@ -35,8 +39,11 @@ export default function Projetos() {
     {
       id: 2,
       nome: "Abstract Project",
+      tipo: "Landing Page",
+      disponibilidade: "Temporariamente indisponível para dispositivos móveis.",
       descricao: "O Abstract Project é um dos meus projetos de teste, desenvolvido como parte de um desafio do Frontend Practice. Esse site oferece desafios de diversos níveis, incentivando a prática e o aprimoramento das habilidades em desenvolvimento front-end.",
-      link: "#",
+      imagem: AbstractMockup,
+      link: "https://duduubas.github.io/Abstract-Project-/",
       linguagens: [
         { nome: "HTML", icon: IconHtml },
         { nome: "CSS", icon: IconCss },
@@ -44,9 +51,11 @@ export default function Projetos() {
     },
     {
       id: 3,
-      nome: "João Gomes - Portifólio",
+      nome: "João Gomes",
+      tipo: "Portifólio • Landing Page",
+      disponibilidadee: "Disponível para todos os dispósitivos.",
       descricao: "O Abstract Project é um dos meus projetos de teste, desenvolvido como parte de um desafio do Frontend Practice. Esse site oferece desafios de diversos níveis, incentivando a prática e o aprimoramento das habilidades em desenvolvimento front-end.",
-      link: "#",
+      link: "https://duduubas.github.io/Joao-Gomes/",
       imagem: JoaoMockup,
       linguagens: [
         { nome: "HTML", icon: IconHtml },
@@ -57,6 +66,8 @@ export default function Projetos() {
     {
       id: 4,
       nome: "Spotify Copy",
+      tipo: "Tipo de site",
+      disponibilidade: "Temporariamente indisponível para dispositivos móveis.",
       descricao: "O Abstract Project é um dos meus projetos de teste, desenvolvido como parte de um desafio do Frontend Practice. Esse site oferece desafios de diversos níveis, incentivando a prática e o aprimoramento das habilidades em desenvolvimento front-end.",
       link: "#",
       linguagens: [
@@ -68,6 +79,8 @@ export default function Projetos() {
     {
       id: 5,
       nome: "DevStage",
+      tipo: "Tipo de site",
+      disponibilidadee: "Disponível para todos os dispósitivos.",
       descricao: "O Abstract Project é um dos meus projetos de teste, desenvolvido como parte de um desafio do Frontend Practice. Esse site oferece desafios de diversos níveis, incentivando a prática e o aprimoramento das habilidades em desenvolvimento front-end.",
       link: "#",
       imagem: DevstageMockup,
@@ -119,8 +132,20 @@ export default function Projetos() {
               )}
 
               <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-[2rem] text-blue font-heading text-center font-semibold mb-4">
+                <h3 className="text-[2rem] text-gray font-heading text-center font-semibold mb-2">
                   {projeto.nome}
+                </h3>
+
+                <h3 className="text-[1rem] text-blue font-sans font-semibold mb-4">
+                  {projeto.tipo}
+                </h3>
+
+                <h3 className="text-[1rem] text-success font-sans font-semibold mb-4">
+                  {projeto.disponibilidadee}
+                </h3>
+
+                <h3 className="text-[1rem] text-danger font-sans font-semibold mb-4">
+                  {projeto.disponibilidade}
                 </h3>
 
                 <p className="text-white font-sans leading-relaxed mb-6 flex-grow">
