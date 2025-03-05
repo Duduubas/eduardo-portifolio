@@ -42,7 +42,7 @@ export default function Projetos() {
       disponibilidade: "Temporariamente indisponível para dispositivos móveis.",
       descricao: "O Abstract Project é um dos meus projetos de teste, desenvolvido como parte de um desafio do Frontend Practice. Esse site oferece desafios de diversos níveis, incentivando a prática e o aprimoramento das habilidades em desenvolvimento front-end.",
       imagem: AbstractMockup,
-      link: "https://duduubas.github.io/Abstract-Project-/",
+      link: "#",
       linguagens: [
         { nome: "HTML", icon: IconHtml },
         { nome: "CSS", icon: IconCss },
@@ -54,7 +54,7 @@ export default function Projetos() {
       tipo: "Portifólio • Landing Page",
       disponibilidadee: "Disponível para todos os dispósitivos.",
       descricao: "Landing page desenvolvida para apresentar as formações, experiências e principais habilidades de João Gomes. O projeto traz um design moderno e informativo, destacando sua trajetória profissional de forma organizada e acessível.",
-      link: "https://duduubas.github.io/Joao-Gomes/",
+      link: "#",
       imagem: JoaoMockup,
       linguagens: [
         { nome: "HTML", icon: IconHtml },
