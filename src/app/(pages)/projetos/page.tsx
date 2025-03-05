@@ -1,13 +1,13 @@
 'use client'
 
-{/* ---- MOCKUPS ----*/ }
+/* ---- MOCKUPS ----*/ 
 import CarryMockup from "@/assets/public/mockup - website_carry.png"
 import JoaoMockup from "@/assets/public/mockup - website_joao.png"
 import DevstageMockup from "@/assets/public/mockup - website_devstage.png"
 import AbstractMockup from "@/assets/public/mockup - website_abstract.png"
+import SpotifyMockup from "@/assets/public/mockup - website_spotify.png"
 
-
-{/* ---- ICONS DAS LINGUAGENS ---- */ }
+/* ---- ICONS DAS LINGUAGENS ---- */ 
 import IconNext from "@/assets/public/icon-nextjs.svg"
 import IconReact from "@/assets/public/icon-react.svg"
 import IconHtml from "@/assets/public/icon-html.svg"
@@ -19,7 +19,7 @@ import Image from "next/image"
 
 export default function Projetos() {
 
-  {/* ------ LISTA DE PROJETOS ------ */ }
+  /* ------ LISTA DE PROJETOS ------ */ 
   const projetos = [
     {
       id: 1,
@@ -33,7 +33,6 @@ export default function Projetos() {
         { nome: "HTML", icon: IconHtml },
         { nome: "CSS", icon: IconCss },
         { nome: "JS", icon: IconJavascript },
-        // Adicione mais linguagens conforme necessário
       ]
     },
     {
@@ -54,7 +53,7 @@ export default function Projetos() {
       nome: "João Gomes",
       tipo: "Portifólio • Landing Page",
       disponibilidadee: "Disponível para todos os dispósitivos.",
-      descricao: "O Abstract Project é um dos meus projetos de teste, desenvolvido como parte de um desafio do Frontend Practice. Esse site oferece desafios de diversos níveis, incentivando a prática e o aprimoramento das habilidades em desenvolvimento front-end.",
+      descricao: "Landing page desenvolvida para apresentar as formações, experiências e principais habilidades de João Gomes. O projeto traz um design moderno e informativo, destacando sua trajetória profissional de forma organizada e acessível.",
       link: "https://duduubas.github.io/Joao-Gomes/",
       imagem: JoaoMockup,
       linguagens: [
@@ -68,8 +67,9 @@ export default function Projetos() {
       nome: "Spotify Copy",
       tipo: "Tipo de site",
       disponibilidade: "Temporariamente indisponível para dispositivos móveis.",
-      descricao: "O Abstract Project é um dos meus projetos de teste, desenvolvido como parte de um desafio do Frontend Practice. Esse site oferece desafios de diversos níveis, incentivando a prática e o aprimoramento das habilidades em desenvolvimento front-end.",
+      descricao: "Página inspirada no layout do Spotify, criada durante a Imersão Front-End da Alura. O projeto reproduz a interface original com algumas adaptações, explorando conceitos de responsividade, estilização avançada e estruturação de páginas web.",
       link: "#",
+      imagem: SpotifyMockup,
       linguagens: [
         { nome: "HTML", icon: IconHtml },
         { nome: "CSS", icon: IconCss },
@@ -81,8 +81,8 @@ export default function Projetos() {
       nome: "DevStage",
       tipo: "Tipo de site",
       disponibilidadee: "Disponível para todos os dispósitivos.",
-      descricao: "O Abstract Project é um dos meus projetos de teste, desenvolvido como parte de um desafio do Frontend Practice. Esse site oferece desafios de diversos níveis, incentivando a prática e o aprimoramento das habilidades em desenvolvimento front-end.",
-      link: "#",
+      descricao: "Página inspirada no evento CodeCraft Summit, desenvolvida durante a NLW Connect da Rocketseat. O site traz informações detalhadas sobre o evento, programação, palestrantes e inscrição, garantindo uma experiência dinâmica e intuitiva para os participantes.",
+      link: "https://devstage-nlw.vercel.app/",
       imagem: DevstageMockup,
       linguagens: [
         { nome: "HTML", icon: IconHtml },
@@ -92,10 +92,6 @@ export default function Projetos() {
       ]
     },
   ]
-
-
-  {/* ------ CONFIGURAÇÕES DE EXIBIÇÃO ------ */ }
-
 
   return (
     <section className="py-16 px-8 w-full flex justify-center">
@@ -110,12 +106,19 @@ export default function Projetos() {
           </h2>
         </div>
 
-        {/* Grid de projetos adaptativo */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Grid de projetos adaptativo com comportamento dinâmico */}
+        <div className="grid grid-cols-1 
+          md:grid-cols-2 
+          lg:grid-cols-3 
+          gap-8 
+          place-items-center 
+          [&>*:only-child]:col-span-full [&>*:only-child]:max-w-xl
+          [&>*:nth-child(2):last-child]:col-span-2 [&>*:nth-child(2):last-child]:justify-self-center"
+        >
           {projetos.map((projeto) => (
             <div
               key={projeto.id}
-              className="bg-cards bg-opacity-5 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 flex flex-col h-full"
+              className="bg-cards bg-opacity-5 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-yellow-400 flex flex-col h-full w-full max-w-md"
             >
               {projeto.imagem && (
                 <div className="h-48 overflow-hidden flex items-center justify-center p-[1.25rem_1.25rem_1.25rem_]">
@@ -148,7 +151,7 @@ export default function Projetos() {
                   {projeto.disponibilidade}
                 </h3>
 
-                <p className="text-white font-sans leading-relaxed mb-6 flex-grow">
+                <p className="text-white text-[1rem] font-sans leading-relaxed mb-6 flex-grow">
                   {projeto.descricao}
                 </p>
 
@@ -169,7 +172,7 @@ export default function Projetos() {
 
                 <a
                   href={projeto.link}
-                  className="self-center px-6 py-2 bg-blue text-white rounded-md transition-all duration-300 hover:-translate-y-1"
+                  className="self-center px-6 py-2 bg-blue text-white text-[1rem] rounded-md transition-all duration-300 hover:-translate-y-1"
                 >
                   Saiba mais
                 </a>

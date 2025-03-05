@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://eduardobrito.dev
+
+# Sitemaps
+Sitemap: https://eduardobrito.dev/sitemap.xml

@@ -27,9 +27,9 @@ export default function Header() {
                                 {/* Hamburger Menu - Visível apenas em telas menores e com borda */}
                                 <div className="flex flex-col justify-between w-[30px] h-[21px] cursor-pointer md:hidden border-2 border-blue rounded-md p-4 relative"onClick={toggleMenu}>
                                     {/* Spans animados do hamburger menu */}
-                                    <span className="w-full h-[3px] bg-blue absolute left-0 right-0 mx-auto transition-all duration-300"style={{width: '20px', top: '8px', transform: menuOpen ? 'rotate(45deg) translate(2px, 2px)' : 'none'}}></span>
-                                    <span className="w-full h-[3px] bg-blue absolute left-0 right-0 mx-auto top-1/2 -translate-y-1/2 transition-all duration-300" style={{width: '20px', opacity: menuOpen ? 0 : 1}}></span>
-                                    <span className="w-full h-[3px] bg-blue absolute left-0 right-0 mx-auto transition-all duration-300" style={{width: '20px', bottom: '8px', transform: menuOpen ? 'rotate(-45deg) translate(2px, -2px)' : 'none'}}></span>
+                                    <span className="w-full h-[3px] bg-blue absolute left-0 right-0 mx-auto transition-all duration-300"style={{width: '20px', top: '8px', transform: menuOpen ? 'rotate(45deg) translate(2px, 2px)' : 'none'}}/>
+                                    <span className="w-full h-[3px] bg-blue absolute left-0 right-0 mx-auto top-1/2 -translate-y-1/2 transition-all duration-300" style={{width: '20px', opacity: menuOpen ? 0 : 1}}/>
+                                    <span className="w-full h-[3px] bg-blue absolute left-0 right-0 mx-auto transition-all duration-300" style={{width: '20px', bottom: '8px', transform: menuOpen ? 'rotate(-45deg) translate(2px, -2px)' : 'none'}}/>
                                 </div>
 
                                 {/* Menu Navigation - Adaptado para responsividade */}

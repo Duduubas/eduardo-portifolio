@@ -1,7 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
-// Componente de Loading com transições garantidas
-export default function Loading() {
+interface LoadingProps {
+  onAnimationComplete?: () => void;
+}
+
+export default function Loading({ onAnimationComplete = () => {} }: LoadingProps) {
   const tips = [
     "Lembre-se: Flexbox é seu amigo para layouts responsivos",
     "Performance importa: sempre otimize suas imagens",
@@ -13,7 +16,6 @@ export default function Loading() {
     "State lifting é seu aliado para compartilhar dados entre componentes"
   ];
 
-  // Estados com valores iniciais que garantem a entrada suave
   const [loadingOpacity, setLoadingOpacity] = useState(0);
   const [elementsVisible, setElementsVisible] = useState(false);
   const [titleStyle, setTitleStyle] = useState({ opacity: 0, y: -20 });
@@ -24,10 +26,8 @@ export default function Loading() {
   const [mounted, setMounted] = useState(true);
   const [tipIndex, setTipIndex] = useState(0);
   
-  // Ref para controlar timeouts
   const timeoutsRef = useRef<number[]>([]);
   
-  // Função para adicionar timeouts ao ref e garantir limpeza adequada
   const safeTimeout = useCallback((callback: () => void, delay: number): void => {
     const id = window.setTimeout(() => {
       timeoutsRef.current = timeoutsRef.current.filter(timeoutId => timeoutId !== id);
@@ -37,7 +37,6 @@ export default function Loading() {
     timeoutsRef.current.push(id);
   }, []);
 
-  // Sequência completa de animação (usando useCallback para evitar recriação em cada render)
   const runAnimation = useCallback(() => {
     // Reset inicial para garantir que começamos do zero
     setLoadingOpacity(0);
@@ -111,15 +110,18 @@ export default function Loading() {
     // 8. Completar e desmontar
     safeTimeout(() => {
       setMounted(false);
+      onAnimationComplete();
     }, 3800);
-  }, [safeTimeout]);
+  }, [safeTimeout, onAnimationComplete]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Random tip selection doesn't need re-render
   useEffect(() => {
     // Bloqueia o scroll durante as transições
     document.body.style.overflow = 'hidden';
     
     // Define um índice aleatório para a dica
-    setTipIndex(Math.floor(Math.random() * tips.length));
+    const randomIndex = Math.floor(Math.random() * tips.length);
+    setTipIndex(randomIndex);
     
     // Inicia a sequência de animação
     runAnimation();
@@ -130,9 +132,6 @@ export default function Loading() {
         // Limpa todos os timeouts quando a aba fica invisível
         timeoutsRef.current.forEach(clearTimeout);
         timeoutsRef.current = [];
-      } else if (mounted) {
-        // Reinicia a animação quando a aba volta a ficar visível
-        runAnimation();
       }
     };
     
@@ -183,7 +182,7 @@ export default function Loading() {
                 willChange: 'transform, opacity',
               }}
             >
-              <div className="custom-loader"></div>
+              <div className="custom-loader"/>
             </div>
             
             <p 

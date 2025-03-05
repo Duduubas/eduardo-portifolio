@@ -90,7 +90,7 @@ const Particles = () => {
       if (particlesContainer && typeof window.particlesJS !== "undefined") {
         window.particlesJS("particles-js", {
           particles: {
-            number: { value: 150, density: { enable: true, value_area: 800 } },
+            number: { value: 500, density: { enable: true, value_area: 900 } },
             color: { value: "#fff" },
             shape: {
               type: "circle",
@@ -150,11 +150,13 @@ const Particles = () => {
 
     return () => {
       const scripts = document.querySelectorAll('script[src*="particles.min.js"]');
-      scripts.forEach((script) => script.parentNode?.removeChild(script));
+      for (const script of scripts) {
+        script.parentNode?.removeChild(script);
+      }
     };
   }, []);
 
-  return <div id="particles-js" className="absolute top-0 left-0 w-full h-full -z-10"></div>;
+  return <div id="particles-js" className="absolute top-0 left-0 w-full h-full -z-10"/>;
 };
 
 export default Particles;
