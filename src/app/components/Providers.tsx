@@ -2,28 +2,46 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import Loading from "@/app/components/Loading";
+import Transition from "@/app/components/Loading";
+
+// Lista de rotas que são consideradas "pesadas" e precisam do loading completo
+const HEAVY_ROUTES = [
+  '/projects',
+  '/gallery',
+  '/contact', // Adicionada a página de contato como rota pesada
+];
 
 export default function Providers({ children }: { children: React.ReactNode }) {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const [targetUrl, setTargetUrl] = useState<string | null>(null);
+  const [isHeavyTransition, setIsHeavyTransition] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+
+  // Verifica se uma rota é pesada
+  const checkIfHeavyRoute = useCallback((url: string): boolean => {
+    return HEAVY_ROUTES.some(route => url.startsWith(route) || url === route);
+  }, []);
 
   // Otimizado para evitar múltiplas renderizações
   const handleNavigation = useCallback((url: string) => {
     if (url !== pathname) {
-      setIsLoading(true);
+      const isHeavy = checkIfHeavyRoute(url);
+      setIsHeavyTransition(isHeavy);
+      setIsTransitioning(true);
       setTargetUrl(url);
     }
-  }, [pathname]);
+  }, [pathname, checkIfHeavyRoute]);
 
   // Callback para navegação após animação
-  const navigateAfterLoading = useCallback(() => {
+  const navigateAfterTransition = useCallback(() => {
     if (targetUrl) {
       router.push(targetUrl);
-      setIsLoading(false);
-      setTargetUrl(null);
+      // Breve atraso após a navegação para permitir que a página seja montada
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setTargetUrl(null);
+      }, 100);
     }
   }, [router, targetUrl]);
 
@@ -37,7 +55,9 @@ export default function Providers({ children }: { children: React.ReactNode }) {
           !href.startsWith("javascript:") && 
           !href.startsWith("#") && 
           !href.startsWith("tel:") && 
-          !href.startsWith("mailto:")) {
+          !href.startsWith("mailto:") &&
+          !href.includes("://") // Ignora links externos
+      ) {
         e.preventDefault();
         handleNavigation(href);
       }
@@ -47,9 +67,12 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     return () => document.removeEventListener("click", handleClick);
   }, [handleNavigation]);
 
-  // Passa um callback para o componente de Loading para navegação
-  return isLoading ? (
-    <Loading onAnimationComplete={navigateAfterLoading} />
+  // Passa um callback para o componente de Transição para navegação
+  return isTransitioning ? (
+    <Transition 
+      onTransitionComplete={navigateAfterTransition} 
+      isHeavyPage={isHeavyTransition} 
+    />
   ) : (
     <>{children}</>
   );

@@ -1,10 +1,14 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
-interface LoadingProps {
-  onAnimationComplete?: () => void;
+interface TransitionProps {
+  onTransitionComplete?: () => void;
+  isHeavyPage?: boolean;
 }
 
-export default function Loading({ onAnimationComplete = () => {} }: LoadingProps) {
+export default function Transition({ 
+  onTransitionComplete = () => {}, 
+  isHeavyPage = false 
+}: TransitionProps) {
   const tips = [
     "Lembre-se: Flexbox é seu amigo para layouts responsivos",
     "Performance importa: sempre otimize suas imagens",
@@ -16,18 +20,15 @@ export default function Loading({ onAnimationComplete = () => {} }: LoadingProps
     "State lifting é seu aliado para compartilhar dados entre componentes"
   ];
 
-  const [loadingOpacity, setLoadingOpacity] = useState(0);
-  const [elementsVisible, setElementsVisible] = useState(false);
-  const [titleStyle, setTitleStyle] = useState({ opacity: 0, y: -20 });
-  const [loaderStyle, setLoaderStyle] = useState({ opacity: 0, y: -10 });
-  const [textStyle, setTextStyle] = useState({ opacity: 0, x: -10 });
-  const [tipBoxStyle, setTipBoxStyle] = useState({ opacity: 0, y: 10, scale: 0.95 });
-  const [finalTransition, setFinalTransition] = useState({ active: false, opacity: 0 });
-  const [mounted, setMounted] = useState(true);
+  // Estado para controle de animações
+  const [transitionState, setTransitionState] = useState<'initial' | 'animating' | 'completed'>('initial');
   const [tipIndex, setTipIndex] = useState(0);
+  const [mounted, setMounted] = useState(true);
   
+  // Refs para gerenciar timeouts
   const timeoutsRef = useRef<number[]>([]);
   
+  // Função segura para criar timeouts
   const safeTimeout = useCallback((callback: () => void, delay: number): void => {
     const id = window.setTimeout(() => {
       timeoutsRef.current = timeoutsRef.current.filter(timeoutId => timeoutId !== id);
@@ -37,85 +38,28 @@ export default function Loading({ onAnimationComplete = () => {} }: LoadingProps
     timeoutsRef.current.push(id);
   }, []);
 
-  const runAnimation = useCallback(() => {
-    // Reset inicial para garantir que começamos do zero
-    setLoadingOpacity(0);
-    setElementsVisible(false);
-    setTitleStyle({ opacity: 0, y: -20 });
-    setLoaderStyle({ opacity: 0, y: -10 });
-    setTextStyle({ opacity: 0, x: -10 });
-    setTipBoxStyle({ opacity: 0, y: 10, scale: 0.95 });
-    setFinalTransition({ active: false, opacity: 0 });
+  // Função para executar a transição lateral azul
+  const runSlideTransition = useCallback(() => {
+    setTransitionState('animating');
     
-    // 1. Fade in do fundo preto
-    safeTimeout(() => {
-      setLoadingOpacity(1);
-    }, 50);
+    // Fase 1: Entrada da transição
+    document.body.style.overflow = 'hidden';
     
-    // 2. Tornar elementos visíveis para preparar animações
+    // Fase 2: Completar a transição e desmontar
     safeTimeout(() => {
-      setElementsVisible(true);
-    }, 300);
-    
-    // 3. Animar entrada dos elementos em sequência
-    safeTimeout(() => {
-      setTitleStyle({ opacity: 1, y: 0 });
-    }, 450);
-    
-    safeTimeout(() => {
-      setLoaderStyle({ opacity: 1, y: 0 });
-    }, 600);
-    
-    safeTimeout(() => {
-      setTextStyle({ opacity: 1, x: 0 });
-    }, 750);
-    
-    safeTimeout(() => {
-      setTipBoxStyle({ opacity: 1, y: 0, scale: 1 });
-    }, 900);
-    
-    // 4. Manter tela por um tempo antes de iniciar saída
-    safeTimeout(() => {
-      // Iniciar saída em sequência reversa
-      setTipBoxStyle({ opacity: 0, y: 10, scale: 0.95 });
-    }, 2200);
-    
-    safeTimeout(() => {
-      setTextStyle({ opacity: 0, x: 10 });
-    }, 2350);
-    
-    safeTimeout(() => {
-      setLoaderStyle({ opacity: 0, y: 10 });
-    }, 2500);
-    
-    safeTimeout(() => {
-      setTitleStyle({ opacity: 0, y: -10 });
-    }, 2650);
-    
-    // 5. Fade out do container principal
-    safeTimeout(() => {
-      setLoadingOpacity(0);
-    }, 2800);
-    
-    // 6. Ativar transição preta final com fade-in
-    safeTimeout(() => {
-      setFinalTransition({ active: true, opacity: 1 });
-    }, 3000);
-    
-    // 7. Fade-out final da tela preta
-    safeTimeout(() => {
-      setFinalTransition({ active: true, opacity: 0 });
-    }, 3400);
-    
-    // 8. Completar e desmontar
-    safeTimeout(() => {
-      setMounted(false);
-      onAnimationComplete();
-    }, 3800);
-  }, [safeTimeout, onAnimationComplete]);
+      setTransitionState('completed');
+      safeTimeout(() => {
+        setMounted(false);
+        onTransitionComplete();
+        document.body.style.overflow = '';
+      }, 700); // Tempo para a saída
+    }, 800); // Tempo para a entrada e permanência
+  }, [safeTimeout, onTransitionComplete]);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: Random tip selection doesn't need re-render
-  useEffect(() => {
+  // Função para executar a animação de loading completa
+  const runLoadingAnimation = useCallback(() => {
+    setTransitionState('animating');
+    
     // Bloqueia o scroll durante as transições
     document.body.style.overflow = 'hidden';
     
@@ -123,8 +67,30 @@ export default function Loading({ onAnimationComplete = () => {} }: LoadingProps
     const randomIndex = Math.floor(Math.random() * tips.length);
     setTipIndex(randomIndex);
     
-    // Inicia a sequência de animação
-    runAnimation();
+    // Sequência de animação de loading
+    safeTimeout(() => {
+      // Mantém a tela de loading por um tempo maior para garantir que a página carregue
+      safeTimeout(() => {
+        setTransitionState('completed');
+        
+        // Completar e desmontar
+        safeTimeout(() => {
+          setMounted(false);
+          onTransitionComplete();
+          document.body.style.overflow = '';
+        }, 600);
+      }, 2500); // Tempo aumentado para permitir carregamento completo
+    }, 600); // Tempo para entrada
+  }, [safeTimeout, onTransitionComplete, tips.length]);
+
+  // Efeito para iniciar a animação apropriada
+  useEffect(() => {
+    // Escolhe entre transição simples ou loading completo
+    if (isHeavyPage) {
+      runLoadingAnimation();
+    } else {
+      runSlideTransition();
+    }
     
     // Gerencia visibilidade da página
     const handleVisibilityChange = () => {
@@ -143,88 +109,67 @@ export default function Loading({ onAnimationComplete = () => {} }: LoadingProps
       timeoutsRef.current.forEach(clearTimeout);
       document.body.style.overflow = '';
     };
-  }, [mounted, runAnimation, tips.length]);
+  }, [isHeavyPage, runLoadingAnimation, runSlideTransition]);
 
   // Se o componente não estiver montado, não renderize nada
   if (!mounted) return null;
 
   return (
     <>
-      {/* Tela de loading principal - sempre presente mas controlada por opacidade */}
-      <div 
-        className="fixed inset-0 flex flex-col items-center justify-center bg-black z-[90] px-4"
-        style={{
-          opacity: loadingOpacity,
-          backgroundColor: 'rgba(0, 0, 0, 0.9)',
-          transition: 'opacity 600ms cubic-bezier(0.65, 0, 0.35, 1)',
-          willChange: 'opacity',
-        }}
-      >
-        {elementsVisible && (
-          <>
-            <h2 
-              className="text-white text-xl md:text-2xl font-heading font-bold mb-4 md:mb-6 text-center"
-              style={{
-                opacity: titleStyle.opacity,
-                transform: `translateY(${titleStyle.y}px)`,
-                transition: 'opacity 500ms ease-out, transform 500ms ease-out',
-                willChange: 'transform, opacity',
-              }}
-            >
-              Aguarde...
-            </h2>
-            
-            <div 
-              style={{
-                opacity: loaderStyle.opacity,
-                transform: `translateY(${loaderStyle.y}px)`,
-                transition: 'opacity 500ms ease-out, transform 500ms ease-out',
-                willChange: 'transform, opacity',
-              }}
-            >
-              <div className="custom-loader"/>
-            </div>
-            
-            <p 
-              className="mt-3 md:mt-4 text-white text-base md:text-lg font-heading font-semibold text-center"
-              style={{
-                opacity: textStyle.opacity,
-                transform: `translateX(${textStyle.x}px)`,
-                transition: 'opacity 500ms ease-out, transform 500ms ease-out',
-                willChange: 'transform, opacity',
-              }}
-            >
-              A página está carregando
-            </p>
-            
-            <div 
-              className="mt-6 md:mt-8 w-full max-w-md px-4 md:px-6 py-2 md:py-3 rounded-lg"
-              style={{
-                opacity: tipBoxStyle.opacity,
-                transform: `translateY(${tipBoxStyle.y}px) scale(${tipBoxStyle.scale})`,
-                transition: 'opacity 500ms ease-out, transform 500ms cubic-bezier(0.16, 1, 0.3, 1)',
-                backgroundColor: 'rgba(15, 23, 42, 0.3)',
-                willChange: 'transform, opacity',
-              }}
-            >
-              <p className="text-white text-xs md:text-sm italic text-center">
-                {tips[tipIndex]}
-              </p>
-            </div>
-          </>
-        )}
-      </div>
-      
-      {/* Camada de transição preta final */}
-      {finalTransition.active && (
+      {/* Transição lateral azul */}
+      {!isHeavyPage && (
         <div 
-          className="fixed inset-0 bg-black z-[100]"
+          className="fixed inset-0 z-[90]"
           style={{
-            opacity: finalTransition.opacity,
+            transform: `translateX(${
+              transitionState === 'initial' 
+                ? '-100%' 
+                : transitionState === 'animating' 
+                  ? '0' 
+                  : '100%'
+            })`,
+            transition: 'transform 700ms cubic-bezier(0.4, 0, 0.2, 1)',
+            willChange: 'transform',
+            background: 'linear-gradient(90deg, #1a365d 0%, #2563eb 50%, #1a365d 100%)',
+          }}
+        />
+      )}
+      
+      {/* Tela de loading (apenas para páginas pesadas) */}
+      {isHeavyPage && (
+        <div 
+          className="fixed inset-0 flex flex-col items-center justify-center bg-blue-900/95 z-[90] px-4"
+          style={{
+            opacity: transitionState === 'initial' ? 0 : transitionState === 'animating' ? 1 : 0,
             transition: 'opacity 600ms cubic-bezier(0.65, 0, 0.35, 1)',
             willChange: 'opacity',
           }}
-        />
+        >
+          <h2 
+            className="text-white text-xl md:text-2xl font-heading font-bold mb-4 md:mb-6 text-center"
+          >
+            Aguarde...
+          </h2>
+          
+          <div className="custom-loader" />
+          
+          <p 
+            className="mt-3 md:mt-4 text-white text-base md:text-lg font-heading font-semibold text-center"
+          >
+            A página está carregando
+          </p>
+          
+          <div 
+            className="mt-6 md:mt-8 w-full max-w-md px-4 md:px-6 py-2 md:py-3 rounded-lg"
+            style={{
+              backgroundColor: 'rgba(15, 23, 42, 0.3)',
+            }}
+          >
+            <p className="text-white text-xs md:text-sm italic text-center">
+              {tips[tipIndex]}
+            </p>
+          </div>
+        </div>
       )}
     </>
   );

@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, Suspense } from "react";
 import { AlertTriangle } from "lucide-react";
 
 const contactSchema = z.object({
@@ -15,7 +15,18 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
-export default function Contact() {
+// Componente de fallback simples enquanto a página carrega
+function LoadingFallback() {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-black">
+      <div className="w-full max-w-lg bg-cards p-6 rounded-xl shadow-lg flex justify-center">
+        <div className="custom-loader" />
+      </div>
+    </div>
+  );
+}
+
+function ContactForm() {
   const { 
     register, 
     handleSubmit, 
@@ -30,6 +41,7 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"success" | "error" | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isContentVisible, setIsContentVisible] = useState(false);
 
   // Optimize phone number formatting with useCallback
   const formatPhoneNumber = useCallback((input: string) => {
@@ -42,9 +54,18 @@ export default function Contact() {
     return digits;
   }, []);
 
-  // Use useEffect for initial load
+  // Use a dois estágios de carregamento para garantir dimensões estáveis
   useEffect(() => {
+    // Primeiro, garantimos que a estrutura básica esteja presente (sem transição)
     setIsLoaded(true);
+    
+    // Depois, adicionamos um atraso maior para garantir que tudo esteja calculado corretamente
+    // antes de mostrar o conteúdo com a transição de opacidade
+    const timer = setTimeout(() => {
+      setIsContentVisible(true);
+    }, 500); // Tempo aumentado para 500ms
+    
+    return () => clearTimeout(timer);
   }, []);
 
   // Optimize submit handler
@@ -62,7 +83,6 @@ export default function Contact() {
       setStatus(response.ok ? "success" : "error");
       if (response.ok) {
         reset();
-        // Optional: Add more success handling if needed
       }
     } catch (error) {
       console.error("Submission error:", error);
@@ -75,19 +95,19 @@ export default function Contact() {
   // Memoize input configuration to prevent unnecessary re-renders
   const inputConfigs = [
     { 
-      label: "Nome", 
+      label: "Nome *", 
       name: "name", 
       type: "text", 
-      placeholder: "Eduardo Brito" 
+      placeholder: "Buzz Lightyear" 
     },
     { 
-      label: "E-mail", 
+      label: "E-mail *", 
       name: "email", 
       type: "email", 
-      placeholder: "example@email.com" 
+      placeholder: "example@domain.com" 
     },
     { 
-      label: "WhatsApp", 
+      label: "WhatsApp *", 
       name: "number", 
       type: "tel", 
       placeholder: "(99) 99999-9999", 
@@ -98,12 +118,12 @@ export default function Contact() {
 
   return (
     <div 
-      className={`
-        flex flex-col items-center justify-center 
-        min-h-screen px-4 bg-black 
-        transition-opacity duration-500 
-        ${isLoaded ? "opacity-100" : "opacity-0"}
-      `}
+      className="flex flex-col items-center justify-center min-h-screen px-4 bg-black"
+      style={{ 
+        visibility: isLoaded ? 'visible' : 'hidden',
+        opacity: isContentVisible ? 1 : 0,
+        transition: 'opacity 500ms ease-in-out'
+      }}
     >
       <h2 className="text-[1.5rem] md:text-3xl font-semibold font-heading text-white mb-6">
         Entre em contato
@@ -143,7 +163,7 @@ export default function Contact() {
         ))}
 
         <label className="block mb-4">
-          <span className="text-white">Mensagem</span>
+          <span className="text-white">Mensagem *</span>
           <textarea
             {...register("message")}
             placeholder="Olá! Tudo bem? Gostaria de um orçamento..."
@@ -193,5 +213,14 @@ export default function Contact() {
         )}
       </form>
     </div>
+  );
+}
+
+export default function Contact() {
+  // Usando Suspense para lidar com o carregamento
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <ContactForm />
+    </Suspense>
   );
 }
