@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useState, useEffect, useCallback, Suspense } from "react";
+import { useState, useCallback, Suspense } from "react";
 import { AlertTriangle } from "lucide-react";
 
 const contactSchema = z.object({
@@ -40,8 +40,6 @@ function ContactForm() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"success" | "error" | null>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isContentVisible, setIsContentVisible] = useState(false);
 
   // Optimize phone number formatting with useCallback
   const formatPhoneNumber = useCallback((input: string) => {
@@ -52,20 +50,6 @@ function ContactForm() {
     if (digits.length >= 2) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
     
     return digits;
-  }, []);
-
-  // Use a dois estágios de carregamento para garantir dimensões estáveis
-  useEffect(() => {
-    // Primeiro, garantimos que a estrutura básica esteja presente (sem transição)
-    setIsLoaded(true);
-    
-    // Depois, adicionamos um atraso maior para garantir que tudo esteja calculado corretamente
-    // antes de mostrar o conteúdo com a transição de opacidade
-    const timer = setTimeout(() => {
-      setIsContentVisible(true);
-    }, 500); // Tempo aumentado para 500ms
-    
-    return () => clearTimeout(timer);
   }, []);
 
   // Optimize submit handler
@@ -117,14 +101,7 @@ function ContactForm() {
   ];
 
   return (
-    <div 
-      className="flex flex-col items-center justify-center min-h-screen px-4 bg-black"
-      style={{ 
-        visibility: isLoaded ? 'visible' : 'hidden',
-        opacity: isContentVisible ? 1 : 0,
-        transition: 'opacity 500ms ease-in-out'
-      }}
-    >
+    <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-black">
       <h2 className="text-[1.5rem] md:text-3xl font-semibold font-heading text-white mb-6">
         Entre em contato
       </h2>
