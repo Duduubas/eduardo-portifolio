@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Icon from "@/assets/public/favicon.png";
 import { Montserrat, Oxanium } from "next/font/google";
+import Icon from "@/assets/public/favicon.png";
 import Footer from "@/app/components/footer";
 import Header from "@/app/components/header";
-import Providers from "@/app/components/Providers"; // Importa o gerenciador de estado
+import Providers from "@/app/components/Providers";
 
 export const metadata: Metadata = {
   title: "Eduardo B. | Desenvolvedor Front-End",
-  description: "Olá, seja bem-vindo(a) ao meu portifólio!",
+  description: "Portfólio de Eduardo Brito, Desenvolvedor Front-End. Confira meus projetos e entre em contato para desenvolvimento web.",
   icons: {
     icon: Icon.src,
   },
@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${oxanium.variable} ${montserrat.variable}`}>
       <body className="bg-black text-yellow">
-        <Providers> {/* Usa o gerenciador de estado */}
+        <Providers>
           <Header />
           <main>{children}</main>
           <Footer />

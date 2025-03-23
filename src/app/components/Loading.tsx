@@ -52,8 +52,8 @@ export default function Transition({
         setMounted(false);
         onTransitionComplete();
         document.body.style.overflow = '';
-      }, 500); // Reduzido de 700ms para 500ms
-    }, 600); // Reduzido de 800ms para 600ms
+      }, 700); // Tempo para a saída
+    }, 800); // Tempo para a entrada e permanência
   }, [safeTimeout, onTransitionComplete]);
 
   // Função para executar a animação de loading completa
@@ -69,7 +69,7 @@ export default function Transition({
     
     // Sequência de animação de loading
     safeTimeout(() => {
-      // Mantém a tela de loading por um tempo específico
+      // Mantém a tela de loading por um tempo maior para garantir que a página carregue
       safeTimeout(() => {
         setTransitionState('completed');
         
@@ -78,9 +78,9 @@ export default function Transition({
           setMounted(false);
           onTransitionComplete();
           document.body.style.overflow = '';
-        }, 400); // Reduzido de 600ms para 400ms
-      }, 1800); // Reduzido de 2500ms para 1800ms
-    }, 400); // Reduzido de 600ms para 400ms
+        }, 600);
+      }, 2500); // Tempo aumentado para permitir carregamento completo
+    }, 600); // Tempo para entrada
   }, [safeTimeout, onTransitionComplete, tips.length]);
 
   // Efeito para iniciar a animação apropriada
@@ -128,7 +128,7 @@ export default function Transition({
                   ? '0' 
                   : '100%'
             })`,
-            transition: 'transform 500ms cubic-bezier(0.4, 0, 0.2, 1)', // Reduzido de 700ms para 500ms
+            transition: 'transform 700ms cubic-bezier(0.4, 0, 0.2, 1)',
             willChange: 'transform',
             background: 'linear-gradient(90deg, #1a365d 0%, #2563eb 50%, #1a365d 100%)',
           }}
@@ -141,7 +141,7 @@ export default function Transition({
           className="fixed inset-0 flex flex-col items-center justify-center bg-blue-900/95 z-[90] px-4"
           style={{
             opacity: transitionState === 'initial' ? 0 : transitionState === 'animating' ? 1 : 0,
-            transition: 'opacity 400ms cubic-bezier(0.65, 0, 0.35, 1)', // Reduzido de 600ms para 400ms
+            transition: 'opacity 600ms cubic-bezier(0.65, 0, 0.35, 1)',
             willChange: 'opacity',
           }}
         >

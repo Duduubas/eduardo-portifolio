@@ -6,9 +6,9 @@ import Transition from "@/app/components/Loading";
 
 // Lista de rotas que são consideradas "pesadas" e precisam do loading completo
 const HEAVY_ROUTES = [
-  '/projects',
+//   '/projects',
   '/gallery',
-  '/contact', // Adicionada a página de contato como rota pesada
+//   '/contact',
 ];
 
 export default function Providers({ children }: { children: React.ReactNode }) {
