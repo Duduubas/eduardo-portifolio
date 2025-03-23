@@ -3,12 +3,15 @@ import FotoLinkedin from "@/assets/public/fotolinkedin.jpg";
 import style from "@/styles/css.module.css";
 
 // IMAGENS DE LINGUAGENS
-import IconHtml from "@/assets/public/icon-html.svg";
-import IconCSS from "@/assets/public/icon-css.svg";
-import IconJavaScript from "@/assets/public/icon-javascript.svg";
-import IconTailwind from "@/assets/public/icon-tailwind.svg";
-import IconReact from "@/assets/public/icon-react.svg";
-import IconNext from "@/assets/public/icon-nextjs.svg";
+import iconHtml from "@/assets/public/icon-html.svg";
+import iconCSS from "@/assets/public/icon-css.svg";
+import iconJavaScript from "@/assets/public/icon-javascript.svg";
+import iconTailwind from "@/assets/public/icon-tailwind.svg";
+import iconReact from "@/assets/public/icon-react.svg";
+import iconNext from "@/assets/public/icon-nextjs.svg";
+import iconGit from "@/assets/public/icon-git.svg";
+import iconGithub from "@/assets/public/icon-github.svg";
+import iconVsCode from "@/assets/public/icons-visual-studio.svg"
 
 export default function Sobre() {
   return (
@@ -63,12 +66,15 @@ export default function Sobre() {
               </h1>
               <div className="grid grid-cols-2 gap-6">
                 {[
-                  { icon: IconHtml, name: "HTML" },
-                  { icon: IconCSS, name: "CSS" },
-                  { icon: IconJavaScript, name: "JavaScript" },
-                  { icon: IconTailwind, name: "Tailwind" },
-                  { icon: IconReact, name: "React" },
-                  { icon: IconNext, name: "Next.js" },
+                  { icon: iconHtml, name: "HTML" },
+                  { icon: iconCSS, name: "CSS" },
+                  { icon: iconJavaScript, name: "JavaScript" },
+                  { icon: iconTailwind, name: "Tailwind" },
+                  { icon: iconReact, name: "React" },
+                  { icon: iconNext, name: "Next.js" },
+                  { icon: iconGithub, name: "GitHub" },
+                  { icon: iconGit, name: "Git" },
+                  { icon: iconVsCode, name:"VS Code" }
                 ].map((skill, index) => (
                   <div
                     key={index}
@@ -79,7 +85,7 @@ export default function Sobre() {
                       alt={skill.name}
                       width={64}
                       height={64}
-                      className={style.skillIcon} 
+                      className={style.skillIcon}
                     />
                     <p className="text-white font-sans text-center mt-2 font-semibold">
                       {skill.name}
