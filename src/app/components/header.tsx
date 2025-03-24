@@ -25,7 +25,7 @@ export default function Header() {
                                 </div>
 
                                 {/* Hamburger Menu - Visível apenas em telas menores e com borda */}
-                                <div className="flex flex-col justify-between w-[30px] h-[21px] cursor-pointer md:hidden border-2 border-blue rounded-md p-4 relative"onClick={toggleMenu}>
+                                <div className="flex flex-col justify-between w-[30px] h-[21px] cursor-pointer border-2 border-blue rounded-md p-4 relative"onClick={toggleMenu}>
                                     {/* Spans animados do hamburger menu */}
                                     <span className="w-full h-[3px] bg-blue absolute left-0 right-0 mx-auto transition-all duration-300" style={{width: '20px', top: '8px', transform: menuOpen ? 'rotate(45deg) translate(2px, 2px)' : 'none'}}/>
                                     <span className="w-full h-[3px] bg-blue absolute left-0 right-0 mx-auto top-1/2 -translate-y-1/2 transition-all duration-300" style={{width: '20px', opacity: menuOpen ? 0 : 1}}/>
@@ -35,17 +35,16 @@ export default function Header() {
                                 {/* Menu Navigation - Adaptado para responsividade */}
                                 <div 
                                     className={`
-                                        absolute md:relative top-full left-0 w-full md:w-auto
-                                        bg-black md:bg-transparent
-                                        flex-col md:flex-row
-                                        p-4 md:p-0
-                                        gap-4 md:gap-[1.5rem]
-                                        border-b-2 md:border-b-0 border-blue-400
+                                        absolute top-full left-0 w-full
+                                        bg-black
+                                        flex-col
+                                        p-4
+                                        gap-5
                                         transition-all duration-300
-                                        ${menuOpen ? 'flex' : 'hidden'} md:flex
+                                        ${menuOpen ? 'flex' : 'hidden'}
                                     `}
                                 >
-                                    <div className="navbar__content-buttons w-full md:w-auto">
+                                    <div className="navbar__content-buttons w-full">
                                         <Link href="/about" className={`block font-sans font-bold bg-transparent 
                                                     border-2 border-blue-400 rounded-md 
                                                     text-white p-[0.5rem_1.5rem] text-[1.1rem] 
