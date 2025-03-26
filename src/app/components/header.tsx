@@ -35,14 +35,14 @@ export default function Header() {
                                 {/* Menu Navigation - Adaptado para responsividade */}
                                 <div 
                                     className={`
-                                        absolute top-full left-0
-                                        bg-black
-                                        p-4
-                                        gap-5
+                                        absolute md:relative top-full left-0 w-full md:w-auto
+                                        bg-black md:bg-transparent
+                                        flex-col md:flex-row
+                                        p-4 md:p-0
+                                        gap-4 md:gap-[1.5rem]
+                                        border-b-2 md:border-b-0 border-blue-400
                                         transition-all duration-300
-                                        text-center w-1/2 
-                                        flex flex-col
-                                        ${menuOpen ? 'flex' : 'hidden'}
+                                        ${menuOpen ? 'flex' : 'hidden'} md:flex
                                     `}
                                 >
                                     <div className="navbar__content-buttons w-full">
