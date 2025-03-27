@@ -29,13 +29,15 @@ export default function Contact() {
   return (
     <div className="flex flex-col min-h-screen bg-black text-white">
       <main className="flex flex-col md:flex-row max-w-6xl mx-auto p-4">
+
         <section className="w-full md:w-1/2 md:pr-8 py-8">
           <p className="mb-4">
-            Transforme sua ideia em realidade digital! Com experiência sólida em desenvolvimento de software, eu crio soluções personalizadas que fazem seu negócio decolar. Cada projeto é único, e juntos podemos desenvolver exatamente o que você precisa - seja um aplicativo inovador, um site responsivo ou um sistema empresarial completo.
+            Dê vida à sua ideia com <strong className="text-blue">soluções web sob medida</strong>! Com experiência em <strong className="text-blue">desenvolvimento front-end</strong>, crio <strong className="text-blue">sites modernos</strong> e <strong className="text-blue">interfaces funcionais</strong> que oferecem a melhor experiência para seus usuários. Seja um <strong className="text-blue">portfólio profissional</strong>, uma <strong className="text-blue">landing page</strong> ou um sistema mais elaborado, seu projeto terá um <strong className="text-blue">design responsivo</strong> e otimizado.
           </p>
           <p>
-            Não perca mais tempo com soluções genéricas. Minha expertise técnica aliada à sua visão podem resultar em produtos digitais que realmente se destacam no mercado. Quer ver sua ideia ganhar vida? Vamos conversar e fazer acontecer! Seu projeto merece uma solução sob medida, e estou pronto para entregá-la.
+            Nada de <strong className="text-danger">templates genéricos</strong>! Seu site precisa refletir sua identidade e atender às suas necessidades de forma estratégica. Vamos transformar sua visão em um <strong className="text-green">projeto bem desenvolvido</strong>? <strong className="text-blue">Entre em contato</strong> e vamos conversar!
           </p>
+
         </section>
 
         <div className="w-full md:w-1/2 flex flex-col items-center justify-center py-8">

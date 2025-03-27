@@ -21,11 +21,13 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-size: 16px !important;
 }
 
 body {
   display: flex;
   flex-direction: column;
+  padding-top: 1.5rem; /* Componente para modificar a altura do header */
 }
 
 main {
@@ -34,7 +36,7 @@ main {
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding-top: 3rem; /* Mantém o espaçamento da navbar */
+  padding-top: 2.5rem; /* Componente para manter o espaçamento da navbar */
 }
 
 /* Classe para remover scroll APENAS em páginas específicas */
@@ -53,7 +55,6 @@ main {
   display: block; /* Remove o flex que centralizava */
   padding-top: 0; /* Remove o espaçamento extra da navbar */
 }
-
 
 .custom-loader {
   width: 50px;
@@ -82,4 +83,3 @@ main {
 @keyframes s9 { 
   100% { transform: rotate(1turn); }
 }
-
