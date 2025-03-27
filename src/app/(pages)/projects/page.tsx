@@ -25,7 +25,7 @@ export default function Projetos() {
       id: 1,
       nome: "Carry",
       tipo: "Landing Page",
-      disponibilidadee: "Disponível para todos os dispósitivos.",
+      disponibilidadeParaTodos: "Disponível para todos os dispósitivos.",
       descricao: "Carry é um bot para Discord desenvolvido para oferecer moderação eficiente e entretenimento interativo, proporcionando uma experiência completa e dinâmica para servidores.",
       imagem: CarryMockup,
       link: "https://carrybot.xyz",
@@ -39,7 +39,7 @@ export default function Projetos() {
       id: 2,
       nome: "Abstract Project",
       tipo: "Landing Page",
-      disponibilidade: "Temporariamente indisponível para dispositivos móveis.",
+      disponibilidadeParaTodos: "Disponível para todos os dispósitivos.",
       descricao: "O Abstract Project é um dos meus projetos de teste, desenvolvido como parte de um desafio do Frontend Practice. Esse site oferece desafios de diversos níveis, incentivando a prática e o aprimoramento das habilidades em desenvolvimento front-end.",
       imagem: AbstractMockup,
       link: "#",
@@ -52,7 +52,7 @@ export default function Projetos() {
       id: 3,
       nome: "João Gomes",
       tipo: "Portifólio • Landing Page",
-      disponibilidadee: "Disponível para todos os dispósitivos.",
+      disponibilidadeParaTodos: "Disponível para todos os dispósitivos.",
       descricao: "Landing page desenvolvida para apresentar as formações, experiências e principais habilidades de João Gomes. O projeto traz um design moderno e informativo, destacando sua trajetória profissional de forma organizada e acessível.",
       link: "#",
       imagem: JoaoMockup,
@@ -66,7 +66,7 @@ export default function Projetos() {
       id: 4,
       nome: "Spotify Copy",
       tipo: "Tipo de site",
-      disponibilidade: "Temporariamente indisponível para dispositivos móveis.",
+      indisponivel: "Temporariamente indisponível para dispositivos móveis.",
       descricao: "Página inspirada no layout do Spotify, criada durante a Imersão Front-End da Alura. O projeto reproduz a interface original com algumas adaptações, explorando conceitos de responsividade, estilização avançada e estruturação de páginas web.",
       link: "#",
       imagem: SpotifyMockup,
@@ -80,7 +80,7 @@ export default function Projetos() {
       id: 5,
       nome: "DevStage",
       tipo: "Tipo de site",
-      disponibilidadee: "Disponível para todos os dispósitivos.",
+      disponibilidadeParaTodos: "Disponível para todos os dispósitivos.",
       descricao: "Página inspirada no evento CodeCraft Summit, desenvolvida durante a NLW Connect da Rocketseat. O site traz informações detalhadas sobre o evento, programação, palestrantes e inscrição, garantindo uma experiência dinâmica e intuitiva para os participantes.",
       link: "https://devstage-nlw.vercel.app/",
       imagem: DevstageMockup,
@@ -144,11 +144,11 @@ export default function Projetos() {
                 </h3>
 
                 <h3 className="text-[1rem] text-success font-sans font-semibold mb-4">
-                  {projeto.disponibilidadee}
+                  {projeto.disponibilidadeParaTodos}
                 </h3>
 
                 <h3 className="text-[1rem] text-danger font-sans font-semibold mb-4">
-                  {projeto.disponibilidade}
+                  {projeto.indisponivel}
                 </h3>
 
                 <p className="text-white text-[1rem] font-sans leading-relaxed mb-6 flex-grow">
@@ -172,7 +172,7 @@ export default function Projetos() {
 
                 <a
                   href={projeto.link}
-                  className="self-center px-6 py-2 bg-blue text-white text-[1rem] rounded-md transition-all duration-300 hover:-translate-y-1"
+                  className="self-center px-6 py-2 bg-blue text-white font-sans font-bold text-[1rem] rounded-md transition-all duration-300 hover:-translate-y-1"
                 >
                   Saiba mais
                 </a>
