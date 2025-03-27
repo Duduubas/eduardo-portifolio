@@ -51,9 +51,9 @@ export default function Projetos() {
     {
       id: 3,
       nome: "João Gomes",
-      tipo: "Portifólio • Landing Page",
+      tipo: "Portifólio",
       disponibilidadeParaTodos: "Disponível para todos os dispósitivos.",
-      descricao: "Landing page desenvolvida para apresentar as formações, experiências e principais habilidades de João Gomes. O projeto traz um design moderno e informativo, destacando sua trajetória profissional de forma organizada e acessível.",
+      descricao: "Portifólio desenvolvido para apresentar as formações, experiências e principais habilidades de João Gomes. O projeto traz um design moderno e informativo, destacando sua trajetória profissional de forma organizada e acessível.",
       link: "#",
       imagem: JoaoMockup,
       linguagens: [
