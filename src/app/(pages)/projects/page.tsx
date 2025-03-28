@@ -42,7 +42,7 @@ export default function Projetos() {
       disponibilidadeParaTodos: "Disponível para todos os dispósitivos.",
       descricao: "O Abstract Project é um dos meus projetos de teste, desenvolvido como parte de um desafio do Frontend Practice. Esse site oferece desafios de diversos níveis, incentivando a prática e o aprimoramento das habilidades em desenvolvimento front-end.",
       imagem: AbstractMockup,
-      link: "#",
+      link: "https://abstract-project-green.vercel.app/",
       linguagens: [
         { nome: "HTML", icon: IconHtml },
         { nome: "CSS", icon: IconCss },
@@ -54,7 +54,7 @@ export default function Projetos() {
       tipo: "Portifólio",
       disponibilidadeParaTodos: "Disponível para todos os dispósitivos.",
       descricao: "Portifólio desenvolvido para apresentar as formações, experiências e principais habilidades de João Gomes. O projeto traz um design moderno e informativo, destacando sua trajetória profissional de forma organizada e acessível.",
-      link: "#",
+      link: "https://joao-gomes.vercel.app/",
       imagem: JoaoMockup,
       linguagens: [
         { nome: "HTML", icon: IconHtml },
