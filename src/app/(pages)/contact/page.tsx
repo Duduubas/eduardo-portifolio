@@ -35,7 +35,7 @@ export default function Contact() {
             Dê vida à sua ideia com <strong className="text-blue">soluções web sob medida</strong>! Com experiência em <strong className="text-blue">desenvolvimento front-end</strong>, crio <strong className="text-blue">sites modernos</strong> e <strong className="text-blue">interfaces funcionais</strong> que oferecem a melhor experiência para seus usuários. Seja um <strong className="text-blue">portfólio profissional</strong>, uma <strong className="text-blue">landing page</strong> ou um sistema mais elaborado, seu projeto terá um <strong className="text-blue">design responsivo</strong> e otimizado.
           </p>
           <p>
-            Nada de <strong className="text-danger">templates genéricos</strong>! Seu site precisa refletir sua identidade e atender às suas necessidades de forma estratégica. Vamos transformar sua visão em um <strong className="text-green">projeto bem desenvolvido</strong>? <strong className="text-blue">Entre em contato</strong> e vamos conversar!
+            Nada de <strong className="text-danger">templates genéricos</strong>! Seu site precisa refletir sua identidade e atender às suas necessidades de forma estratégica. Vamos transformar sua visão em um <strong className="text-success">projeto bem desenvolvido</strong>? <strong className="text-blue">Entre em contato</strong> e vamos conversar!
           </p>
 
         </section>
