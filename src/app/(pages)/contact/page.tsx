@@ -30,7 +30,7 @@ export default function Contact() {
     <div className="flex flex-col min-h-screen bg-black text-white">
       <main className="flex flex-col md:flex-row max-w-6xl mx-auto p-4">
 
-        <section className="w-full md:w-1/2 md:pr-8 py-8">
+        <section className="w-full md:w-1/2 md:pr-8 py-8 text-[1.2rem]">
           <p className="mb-4">
             Dê vida à sua ideia com <strong className="text-blue">soluções web sob medida</strong>! Com experiência em <strong className="text-blue">desenvolvimento front-end</strong>, crio <strong className="text-blue">sites modernos</strong> e <strong className="text-blue">interfaces funcionais</strong> que oferecem a melhor experiência para seus usuários. Seja um <strong className="text-blue">portfólio profissional</strong>, uma <strong className="text-blue">landing page</strong> ou um sistema mais elaborado, seu projeto terá um <strong className="text-blue">design responsivo</strong> e otimizado.
           </p>
