@@ -83,7 +83,7 @@ export default function ContactForm() {
       label: "WhatsApp *", 
       name: "number", 
       type: "tel", 
-      placeholder: "(99) 99999-9999", 
+      placeholder: "(00) 00000-0000", 
       onBlur: (e: React.FocusEvent<HTMLInputElement>) => 
         setValue("number", formatPhoneNumber(e.target.value)) 
     }
