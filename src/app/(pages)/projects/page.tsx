@@ -6,6 +6,7 @@ import JoaoMockup from "@/assets/public/mockup - website_joao.png"
 import DevstageMockup from "@/assets/public/mockup - website_devstage.png"
 import AbstractMockup from "@/assets/public/mockup - website_abstract.png"
 import SpotifyMockup from "@/assets/public/mockup - website_spotify.png"
+import qrCodeMockup from "@/assets/public/Mockups - WebSite_qrcode.png"
 
 /* ---- ICONS DAS LINGUAGENS ---- */ 
 import IconNext from "@/assets/public/icon-nextjs.svg"
@@ -86,6 +87,20 @@ export default function Projetos() {
       imagem: DevstageMockup,
       linguagens: [
         { nome: "HTML", icon: IconHtml },
+        { nome: "React", icon: IconReact },
+        { nome: "Next.js", icon: IconNext },
+        { nome: "Tailwind", icon: IconTailwind },
+      ]
+    },
+    {
+      id: 6,
+      nome: "QR Code Generator",
+      tipo: "Tipo de site",
+      disponibilidadeParaTodos: "Disponível para todos os dispósitivos.",
+      descricao: "Gerador de QR Code desenvolvido com Next.js e TypeScript que permite aos usuários criar códigos QR personalizados de forma simples e rápida. O projeto oferece customização completa de cores, adição de títulos e descrições, além de download automático em formato PNG, tudo com uma interface intuitiva e responsiva.",
+      link: "https://qrcodegenerator.eduardobrito.dev",
+      imagem: qrCodeMockup,
+      linguagens: [
         { nome: "React", icon: IconReact },
         { nome: "Next.js", icon: IconNext },
         { nome: "Tailwind", icon: IconTailwind },
@@ -172,6 +187,7 @@ export default function Projetos() {
 
                 <a
                   href={projeto.link}
+                  target="_blank"
                   className="self-center px-6 py-2 bg-blue text-white font-sans font-bold text-[1rem] rounded-md transition-all duration-300 hover:-translate-y-1"
                 >
                   Saiba mais
