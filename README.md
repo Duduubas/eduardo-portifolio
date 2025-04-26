@@ -3,7 +3,7 @@
 [![Tecnologias](https://img.shields.io/badge/Tecnologias-Next.js%20%7C%20React%20%7C%20Tailwind-blue)](https://eduardobrito.dev)
 [![Portfolio](https://img.shields.io/badge/Portfolio-eduardobrito.dev-blue)](https://eduardobrito.dev)
 
-![Screenshot do Portfólio](../Duduubas%20-%20Portifólio%20-%20Next.js/src/assets/public/img-portifolio.webp)
+![Screenshot do Portfólio](https://i.postimg.cc/PNn8m0Wt/image.png)
 
 ## 📋 Sobre o Projeto
 
