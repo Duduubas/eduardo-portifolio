@@ -12,6 +12,8 @@ import iconNext from "@/assets/public/icon-nextjs.svg";
 import iconGit from "@/assets/public/icon-git.svg";
 import iconGithub from "@/assets/public/icon-github.svg";
 import iconVsCode from "@/assets/public/icons-visual-studio.svg"
+import iconCodepen from "@/assets/public/icon-codepen.svg";
+import iconCloudflare from "@/assets/public/icon-cloudflare.svg";
 
 export default function Sobre() {
   return (
@@ -74,7 +76,9 @@ export default function Sobre() {
                   { icon: iconNext, name: "Next.js" },
                   { icon: iconGithub, name: "GitHub" },
                   { icon: iconGit, name: "Git" },
-                  { icon: iconVsCode, name:"VS Code" }
+                  { icon: iconVsCode, name:"VS Code" },
+                  { icon: iconCodepen, name: "CodePen" },
+                  { icon: iconCloudflare, name: "Cloudflare" },
                 ].map((skill, index) => (
                   <div
                     key={index}
