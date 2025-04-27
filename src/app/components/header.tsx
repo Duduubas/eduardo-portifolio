@@ -53,12 +53,12 @@ export default function Header() {
                                 href={item.href}
                                 className={`
                                     font-sans font-bold
-                                    border-2 border-blue-400 rounded-md
+                                    border-2 rounded-md
                                     text-white px-6 py-2 text-[1.1rem]
                                     transition-all duration-300
-                                    hover:bg-blue-400 hover:text-black
+                                    hover:bg-blue hover:text-black
                                     ${styles.navbarContentButtons}
-                                    ${pathname === item.href ? 'bg-blue-400 text-black' : ''}
+                                    ${pathname === item.href ? 'bg-blue text-black' : ''}
                                 `}
                             >
                                 {item.label}
@@ -115,12 +115,12 @@ export default function Header() {
                                 href={item.href}
                                 className={`
                                     font-sans font-bold
-                                    border-2 border-blue-400 rounded-md
+                                    border-2 rounded-md
                                     text-white p-[0.5rem_1.5rem] text-[1.1rem]
                                     text-center transition-all duration-300
-                                    hover:bg-blue-400 hover:text-black
+                                    hover:bg-blue hover:text-black
                                     ${styles.navbarContentButtons}
-                                    ${pathname === item.href ? 'bg-blue-400 text-black' : ''}
+                                    ${pathname === item.href ? 'bg-blue text-black' : ''}
                                 `}
                             >
                                 {item.label}
