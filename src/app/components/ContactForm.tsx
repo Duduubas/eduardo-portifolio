@@ -93,7 +93,8 @@ export default function ContactForm() {
     <form 
       onSubmit={handleSubmit(onSubmit)} 
       noValidate 
-      className="w-full max-w-lg bg-cards p-6 rounded-xl shadow-lg"
+      className="w-full max-w-lg bg-cards p-6 rounded-xl shadow-lg "
+      autoComplete="off"
     >
       {inputConfigs.map(({ label, name, type, placeholder, onBlur }) => (
         <label key={name} className="block mb-4">
