@@ -1,6 +1,6 @@
 'use client'
 
-/* ---- MOCKUPS ----*/ 
+/* ---- MOCKUPS ----*/
 import CarryMockup from "@/assets/public/mockup - website_carry.png"
 import JoaoMockup from "@/assets/public/mockup - website_joao.png"
 import DevstageMockup from "@/assets/public/mockup - website_devstage.png"
@@ -8,7 +8,7 @@ import AbstractMockup from "@/assets/public/mockup - website_abstract.png"
 import SpotifyMockup from "@/assets/public/mockup - website_spotify.png"
 import qrCodeMockup from "@/assets/public/Mockups - WebSite_qrcode.png"
 
-/* ---- ICONS DAS LINGUAGENS ---- */ 
+/* ---- ICONS DAS LINGUAGENS ---- */
 import IconNext from "@/assets/public/icon-nextjs.svg"
 import IconReact from "@/assets/public/icon-react.svg"
 import IconHtml from "@/assets/public/icon-html.svg"
@@ -16,11 +16,13 @@ import IconTailwind from "@/assets/public/icon-tailwind.svg"
 import IconCss from "@/assets/public/icon-css.svg"
 import IconJavascript from "@/assets/public/icon-javascript.svg"
 
+/* ---- COMPONENTES ---- */
 import Image from "next/image"
+import { Code, PanelTop } from "lucide-react"
 
 export default function Projetos() {
 
-  /* ------ LISTA DE PROJETOS ------ */ 
+  /* ------ LISTA DE PROJETOS ------ */
   const projetos = [
     {
       id: 1,
@@ -29,7 +31,8 @@ export default function Projetos() {
       disponibilidadeParaTodos: "Disponível para todos os dispósitivos.",
       descricao: "Carry é um bot para Discord desenvolvido para oferecer moderação eficiente e entretenimento interativo, proporcionando uma experiência completa e dinâmica para servidores.",
       imagem: CarryMockup,
-      link: "https://carrybot.xyz",
+      linkWebsite: "https://carrybot.xyz",
+      linkRepositorio: "",
       linguagens: [
         { nome: "HTML", icon: IconHtml },
         { nome: "CSS", icon: IconCss },
@@ -43,7 +46,8 @@ export default function Projetos() {
       disponibilidadeParaTodos: "Disponível para todos os dispósitivos.",
       descricao: "O Abstract Project é um dos meus projetos de teste, desenvolvido como parte de um desafio do Frontend Practice. Esse site oferece desafios de diversos níveis, incentivando a prática e o aprimoramento das habilidades em desenvolvimento front-end.",
       imagem: AbstractMockup,
-      link: "https://abstract-project-green.vercel.app/",
+      linkWebsite: "https://abstract-project-green.vercel.app/",
+      linkRepositorio: "",
       linguagens: [
         { nome: "HTML", icon: IconHtml },
         { nome: "CSS", icon: IconCss },
@@ -55,7 +59,8 @@ export default function Projetos() {
       tipo: "Portifólio",
       disponibilidadeParaTodos: "Disponível para todos os dispósitivos.",
       descricao: "Portifólio desenvolvido para apresentar as formações, experiências e principais habilidades de João Gomes. O projeto traz um design moderno e informativo, destacando sua trajetória profissional de forma organizada e acessível.",
-      link: "https://joao-gomes.vercel.app/",
+      linkWebsite: "https://joao-gomes.vercel.app/",
+      linkRepositorio: "",
       imagem: JoaoMockup,
       linguagens: [
         { nome: "HTML", icon: IconHtml },
@@ -69,7 +74,8 @@ export default function Projetos() {
       tipo: "Tipo de site",
       indisponivel: "Temporariamente indisponível para dispositivos móveis.",
       descricao: "Página inspirada no layout do Spotify, criada durante a Imersão Front-End da Alura. O projeto reproduz a interface original com algumas adaptações, explorando conceitos de responsividade, estilização avançada e estruturação de páginas web.",
-      link: "#",
+      linkWebsite: "#",
+      linkRepositorio: "",
       imagem: SpotifyMockup,
       linguagens: [
         { nome: "HTML", icon: IconHtml },
@@ -83,7 +89,8 @@ export default function Projetos() {
       tipo: "Tipo de site",
       disponibilidadeParaTodos: "Disponível para todos os dispósitivos.",
       descricao: "Página inspirada no evento CodeCraft Summit, desenvolvida durante a NLW Connect da Rocketseat. O site traz informações detalhadas sobre o evento, programação, palestrantes e inscrição, garantindo uma experiência dinâmica e intuitiva para os participantes.",
-      link: "https://devstage-nlw.vercel.app/",
+      linkWebsite: "https://devstage-nlw.vercel.app/",
+      linkRepositorio: "",
       imagem: DevstageMockup,
       linguagens: [
         { nome: "HTML", icon: IconHtml },
@@ -98,7 +105,8 @@ export default function Projetos() {
       tipo: "Tipo de site",
       disponibilidadeParaTodos: "Disponível para todos os dispósitivos.",
       descricao: "Gerador de QR Code desenvolvido com Next.js e TypeScript que permite aos usuários criar códigos QR personalizados de forma simples e rápida. O projeto oferece customização completa de cores, adição de títulos e descrições, além de download automático em formato PNG, tudo com uma interface intuitiva e responsiva.",
-      link: "https://qrcodegenerator.eduardobrito.dev",
+      linkWebsite: "https://qrcodegenerator.eduardobrito.dev",
+      linkRepositorio: "",
       imagem: qrCodeMockup,
       linguagens: [
         { nome: "React", icon: IconReact },
@@ -185,13 +193,24 @@ export default function Projetos() {
                   ))}
                 </div>
 
-                <a
-                  href={projeto.link}
-                  target="_blank"
-                  className="self-center px-6 py-2 bg-blue text-white font-sans font-bold text-[1rem] rounded-md transition-all duration-300 hover:-translate-y-1"
-                >
-                  Saiba mais
-                </a>
+                <div className="flex flex-col justify-center gap-4 mb-6 md:flex-row">
+                  <a
+                    href={projeto.linkWebsite}
+                    target="_blank"
+                    className="self-center flex gap-2 px-6 py-2 bg-blue text-white font-sans font-bold text-[1rem] rounded-md transition-all duration-300 hover:-translate-y-1"
+                  >
+                    <PanelTop />
+                    Website
+                  </a>
+                  <a
+                    href={projeto.linkRepositorio}
+                    target="_blank"
+                    className="self-center flex gap-2 px-6 py-2 bg-blue text-white font-sans font-bold text-[1rem] rounded-md transition-all duration-300 hover:-translate-y-1"
+                  >
+                    <Code />
+                    Repositório
+                  </a>
+                </div>
               </div>
             </div>
           ))}
