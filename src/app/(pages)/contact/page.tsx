@@ -1,9 +1,7 @@
 "use client";
 
-import { lazy, Suspense, useState, useEffect } from "react";
-
-// Carregamento dinâmico do formulário sem SSR
-const ContactForm = lazy(() => import("@/app/components/ContactForm"));
+import { Suspense, useState, useEffect } from "react";
+import ContactForm from "@/app/components/contactForm";
 
 // Componente placeholder com dimensões idênticas ao formulário real
 function FormPlaceholder() {
@@ -45,9 +43,13 @@ export default function Contact() {
             Entre em contato
           </h2>
           <div className="w-full max-w-lg min-h-[400px] flex items-center justify-center">
-            <Suspense fallback={<FormPlaceholder />}>
-              {isClient ? <ContactForm /> : <FormPlaceholder />}
-            </Suspense>
+            {isClient ? (
+              <Suspense fallback={<FormPlaceholder />}>
+                <ContactForm/>
+              </Suspense>
+            ) : (
+              <FormPlaceholder />
+            )}
           </div>
         </div>
       </main>
