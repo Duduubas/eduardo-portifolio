@@ -47,7 +47,7 @@ export default function Projetos() {
       descricao: "O Abstract Project é um dos meus projetos de teste, desenvolvido como parte de um desafio do Frontend Practice. Esse site oferece desafios de diversos níveis, incentivando a prática e o aprimoramento das habilidades em desenvolvimento front-end.",
       imagem: AbstractMockup,
       linkWebsite: "https://abstract-project-green.vercel.app/",
-      linkRepositorio: "",
+      linkRepositorio: "https://github.com/Duduubas/Abstract-Project-",
       linguagens: [
         { nome: "HTML", icon: IconHtml },
         { nome: "CSS", icon: IconCss },
@@ -60,7 +60,7 @@ export default function Projetos() {
       disponibilidadeParaTodos: "Disponível para todos os dispósitivos.",
       descricao: "Portifólio desenvolvido para apresentar as formações, experiências e principais habilidades de João Gomes. O projeto traz um design moderno e informativo, destacando sua trajetória profissional de forma organizada e acessível.",
       linkWebsite: "https://joao-gomes.vercel.app/",
-      linkRepositorio: "",
+      linkRepositorio: "https://github.com/Duduubas/joao-gomes",
       imagem: JoaoMockup,
       linguagens: [
         { nome: "HTML", icon: IconHtml },
@@ -75,7 +75,7 @@ export default function Projetos() {
       indisponivel: "Temporariamente indisponível para dispositivos móveis.",
       descricao: "Página inspirada no layout do Spotify, criada durante a Imersão Front-End da Alura. O projeto reproduz a interface original com algumas adaptações, explorando conceitos de responsividade, estilização avançada e estruturação de páginas web.",
       linkWebsite: "#",
-      linkRepositorio: "",
+      linkRepositorio: "https://github.com/Duduubas/spotify-imersao-alura",
       imagem: SpotifyMockup,
       linguagens: [
         { nome: "HTML", icon: IconHtml },
@@ -90,7 +90,7 @@ export default function Projetos() {
       disponibilidadeParaTodos: "Disponível para todos os dispósitivos.",
       descricao: "Página inspirada no evento CodeCraft Summit, desenvolvida durante a NLW Connect da Rocketseat. O site traz informações detalhadas sobre o evento, programação, palestrantes e inscrição, garantindo uma experiência dinâmica e intuitiva para os participantes.",
       linkWebsite: "https://devstage-nlw.vercel.app/",
-      linkRepositorio: "",
+      linkRepositorio: "https://github.com/Duduubas/nlw-connect-react",
       imagem: DevstageMockup,
       linguagens: [
         { nome: "HTML", icon: IconHtml },
@@ -106,7 +106,7 @@ export default function Projetos() {
       disponibilidadeParaTodos: "Disponível para todos os dispósitivos.",
       descricao: "Gerador de QR Code desenvolvido com Next.js e TypeScript que permite aos usuários criar códigos QR personalizados de forma simples e rápida. O projeto oferece customização completa de cores, adição de títulos e descrições, além de download automático em formato PNG, tudo com uma interface intuitiva e responsiva.",
       linkWebsite: "https://qrcodegenerator.eduardobrito.dev",
-      linkRepositorio: "",
+      linkRepositorio: "https://github.com/Duduubas/qr-code-generator",
       imagem: qrCodeMockup,
       linguagens: [
         { nome: "React", icon: IconReact },
