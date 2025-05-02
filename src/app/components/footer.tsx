@@ -26,6 +26,7 @@ export default function Footer(){
                     <div className="legal-text text-gray flex flex-col items-start justify-center">
                         <h3>&copy; Todos os direitos reservados</h3>
                         <a href="https://eduardobrito.dev" className="cursor-pointer indent-3">Desenvolvido por <span className="text-blue">Eduardo B.</span></a>
+                        <a href="mailto:eduardo.brito@eduardobrito.dev">eduardo.brito@eduardobrito.dev</a>
                     </div>
                 </div>
             </div>
