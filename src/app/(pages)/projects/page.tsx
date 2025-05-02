@@ -4,9 +4,9 @@
 import CarryMockup from "@/assets/public/mockup - website_carry.png"
 import JoaoMockup from "@/assets/public/mockup - website_joao.png"
 import DevstageMockup from "@/assets/public/mockup - website_devstage.png"
-import AbstractMockup from "@/assets/public/mockup - website_abstract.png"
 import SpotifyMockup from "@/assets/public/mockup - website_spotify.png"
 import qrCodeMockup from "@/assets/public/Mockups - WebSite_qrcode.png"
+import mapaCratoMockup from "@/assets/public/mockup - website_mapacrato.png"
 
 /* ---- ICONS DAS LINGUAGENS ---- */
 import IconNext from "@/assets/public/icon-nextjs.svg"
@@ -41,16 +41,17 @@ export default function Projetos() {
     },
     {
       id: 2,
-      nome: "Abstract Project",
+      nome: "Mapa do Crato - Guia Turístico",
       tipo: "Landing Page",
       disponibilidadeParaTodos: "Disponível para todos os dispósitivos.",
-      descricao: "O Abstract Project é um dos meus projetos de teste, desenvolvido como parte de um desafio do Frontend Practice. Esse site oferece desafios de diversos níveis, incentivando a prática e o aprimoramento das habilidades em desenvolvimento front-end.",
-      imagem: AbstractMockup,
-      linkWebsite: "https://abstract-project-green.vercel.app/",
-      linkRepositorio: "https://github.com/Duduubas/Abstract-Project-",
+      descricao: "O Guia Turístico de Crato-CE apresenta os principais pontos históricos da cidade através de uma timeline interativa, com modais informativos e animações suaves para uma experiência de navegação envolvente.",
+      imagem: mapaCratoMockup,
+      linkWebsite: "https://mapa-crato.eduardobrito.dev/",
+      linkRepositorio: "https://github.com/Duduubas/mapa-crato",
       linguagens: [
         { nome: "HTML", icon: IconHtml },
         { nome: "CSS", icon: IconCss },
+        { nome: "JS", icon: IconJavascript },
       ]
     },
     {
