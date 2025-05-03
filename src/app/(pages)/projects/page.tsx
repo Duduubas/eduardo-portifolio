@@ -18,7 +18,7 @@ import IconJavascript from "@/assets/public/icon-javascript.svg"
 
 /* ---- COMPONENTES ---- */
 import Image from "next/image"
-import { Code, PanelTop } from "lucide-react"
+import { CodeXml, PanelTop } from "lucide-react"
 
 export default function Projetos() {
 
@@ -204,11 +204,11 @@ export default function Projetos() {
                     Website
                   </a>
                   <a
-                    href={projeto.linkRepositorio}
-                    target="_blank"
-                    className="self-center flex gap-2 px-6 py-2 bg-blue text-white font-sans font-bold text-[1rem] rounded-md transition-all duration-300 hover:-translate-y-1"
+                  href={projeto.linkRepositorio}
+                  target="_blank"
+                  className="self-center flex gap-2 px-6 py-2 bg-blue text-white font-sans font-bold text-[1rem] rounded-md transition-all duration-300 hover:-translate-y-1"
                   >
-                    <Code />
+                    <CodeXml/>
                     Repositório
                   </a>
                 </div>
