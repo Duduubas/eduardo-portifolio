@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Particles from '../components/Particles';
+import DiscordStatus from "./discordPresence";
 
 export default function Main() {
     const text = "Desenvolvedor Front-End";
@@ -51,10 +52,11 @@ export default function Main() {
                         Aplicando responsividade também ao subtítulo, reduzindo o tamanho em telas menores
                         Não há regra específica no CSS para o subtítulo, mas seguindo o padrão
                     */}
-                    <h2 className="text-xl md:text-2xl lg:text-[2.5rem] text-white font-sans mt-2">
+                    <h2 className="text-xl pb-2 md:text-2xl lg:text-[2.5rem] text-white font-sans mt-2">
                         {typedText}
                         <span className={`ml-1 ${showCursor ? "opacity-100" : "opacity-0"}`}>|</span>
                     </h2>
+                    <DiscordStatus/>
                 </div>
             </section>
         </main>
