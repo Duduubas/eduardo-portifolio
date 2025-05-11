@@ -99,7 +99,3 @@ src/
 - **GitHub**: [Duduubas](https://github.com/Duduubas)
 - **Discord**: [Eduardo Brito](https://discord.com/users/522531030834610211)
 - **Email**: contato@eduardobrito.dev
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
