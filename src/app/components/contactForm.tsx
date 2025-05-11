@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState, useCallback } from "react";
-import { AlertTriangle } from "lucide-react";
+import { AlertTriangle, MousePointerClick } from "lucide-react";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Digite seu nome completo."),
@@ -133,9 +133,10 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-2 bg-blue text-white font-bold cursor-pointer rounded-xl hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-hover hover:text-black"
+        className="w-full py-2 flex justify-center gap-2 bg-blue text-white font-bold cursor-pointer rounded-xl hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-hover hover:text-black"
       >
         {isSubmitting ? "Enviando..." : "Enviar"}
+        <MousePointerClick />
       </button>
 
       {status && (
