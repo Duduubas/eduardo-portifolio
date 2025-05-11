@@ -1,5 +1,5 @@
 import Image from "next/image";
-import FotoLinkedin from "@/assets/public/fotolinkedin.jpg";
+import imagemEduardo from "@/assets/public/img_eduardo.webp";
 import style from "@/styles/css.module.css";
 
 // IMAGENS DE LINGUAGENS
@@ -45,7 +45,7 @@ export default function Sobre() {
           <div className="w-full md:w-1/3 flex justify-center md:justify-end">
             <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 overflow-hidden rounded-full shadow-lg border-4 border-blue">
               <Image
-                src={FotoLinkedin}
+                src={imagemEduardo}
                 alt="Eduardo"
                 fill
                 className="object-cover"
