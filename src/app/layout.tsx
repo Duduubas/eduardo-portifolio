@@ -7,10 +7,60 @@ import Header from "@/app/components/header";
 import Providers from "@/app/components/Providers";
 
 export const metadata: Metadata = {
-  title: "Eduardo B. | Desenvolvedor Front-End",
+  metadataBase: new URL('https://seusite.com.br'),
+  title: {
+    default: "Eduardo B. | Desenvolvedor Front-End",
+    template: "%s | Eduardo B.",
+  },
   description: "Portfólio de Eduardo Brito, Desenvolvedor Front-End. Confira meus projetos e entre em contato para desenvolvimento web.",
+  keywords: ['desenvolvedor front-end', 'portfolio', 'web development', 'react', 'next.js'],
+  authors: [{ name: 'Eduardo Brito', url: 'https://seusite.com.br' }],
+  creator: 'Eduardo Brito',
+  publisher: 'Eduardo Brito',
+  robots: {
+    index: true,
+    follow: true,
+  },
+  
+  // Open Graph - para compartilhamento em redes sociais
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    url: 'https://seusite.com.br',
+    siteName: 'Eduardo B. | Desenvolvedor Front-End',
+    title: 'Eduardo B. | Desenvolvedor Front-End',
+    description: 'Portfólio de Eduardo Brito, Desenvolvedor Front-End. Confira meus projetos e entre em contato para desenvolvimento web.',
+    images: [
+      {
+        url: 'https://seusite.com.br/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Banner do portfólio de Eduardo Brito',
+      },
+    ],
+  },
+  
+  // Twitter Card
+  twitter: {
+    card: 'summary_large_image',
+    site: '@seuhandle',
+    creator: '@seuhandle',
+    title: 'Eduardo B. | Desenvolvedor Front-End',
+    description: 'Portfólio de Eduardo Brito, Desenvolvedor Front-End. Confira meus projetos e entre em contato para desenvolvimento web.',
+    images: ['https://seusite.com.br/twitter-image.jpg'],
+  },
+  
+  // Ícones
   icons: {
     icon: Icon.src,
+  },
+  
+  // Configuração de aplicativo da web
+  applicationName: 'Eduardo B. | Desenvolvedor Front-End',
+  appleWebApp: {
+    capable: true,
+    title: 'Eduardo B. | Desenvolvedor Front-End',
+    statusBarStyle: 'black-translucent',
   },
 };
 
