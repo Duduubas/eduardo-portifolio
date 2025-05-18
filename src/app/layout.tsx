@@ -7,14 +7,14 @@ import Header from "@/app/components/header";
 import Providers from "@/app/components/Providers";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://seusite.com.br'),
+  metadataBase: new URL('https://eduardobrito.dev'), 
   title: {
     default: "Eduardo B. | Desenvolvedor Front-End",
     template: "%s | Eduardo B.",
   },
   description: "Portfólio de Eduardo Brito, Desenvolvedor Front-End. Confira meus projetos e entre em contato para desenvolvimento web.",
   keywords: ['desenvolvedor front-end', 'portfolio', 'web development', 'react', 'next.js'],
-  authors: [{ name: 'Eduardo Brito', url: 'https://seusite.com.br' }],
+  authors: [{ name: 'Eduardo Brito', url: 'https://eduardobrito.dev' }],
   creator: 'Eduardo Brito',
   publisher: 'Eduardo Brito',
   robots: {
@@ -26,28 +26,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
-    url: 'https://seusite.com.br',
+    url: 'https://eduardobrito.dev',
     siteName: 'Eduardo B. | Desenvolvedor Front-End',
     title: 'Eduardo B. | Desenvolvedor Front-End',
     description: 'Portfólio de Eduardo Brito, Desenvolvedor Front-End. Confira meus projetos e entre em contato para desenvolvimento web.',
-    images: [
-      {
-        url: 'https://seusite.com.br/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Banner do portfólio de Eduardo Brito',
-      },
-    ],
   },
   
   // Twitter Card
   twitter: {
-    card: 'summary_large_image',
-    site: '@seuhandle',
-    creator: '@seuhandle',
+    ////card: 'summary_large_image',
     title: 'Eduardo B. | Desenvolvedor Front-End',
     description: 'Portfólio de Eduardo Brito, Desenvolvedor Front-End. Confira meus projetos e entre em contato para desenvolvimento web.',
-    images: ['https://seusite.com.br/twitter-image.jpg'],
+    ////images: ['https://seusite.com.br/twitter-image.jpg'],
   },
   
   // Ícones
