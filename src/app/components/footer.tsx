@@ -3,6 +3,7 @@ import LinkedinIcon from "@/assets/public/icon-linkedin.svg"
 import GithubIcon from "@/assets/public/icon-github.svg"
 import DiscordIcon from "@/assets/public/icon-discord.svg"
 import styles from "@/styles/css.module.css";
+import InstagramIcon from "@/assets/public/icon-instagram.svg"
 
 
 {/* ------ CONFIGURAÇÃO DO FOOTER ------ */}
@@ -21,6 +22,9 @@ export default function Footer(){
                         </a>
                         <a href="https://discord.com/users/522531030834610211" target="_blank">
                             <Image className={`w-[32px] h-[32px] cursor-pointer ${styles.iconImage}`} src={DiscordIcon} alt="Discord Icon"/>
+                        </a>
+                        <a href="https://www.instagram.com/eduardobrito.dev" target="_blank">
+                            <Image className={`w-[32px] h-[32px] cursor-pointer ${styles.iconImage}`} src={InstagramIcon} alt="Discord Icon"/>
                         </a>
                     </nav>
                     <div className="legal-text text-gray flex flex-col items-start justify-center">
