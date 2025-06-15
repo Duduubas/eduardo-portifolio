@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Montserrat, Oxanium } from "next/font/google";
 import Icon from "@/assets/public/favicon.png";
-import Footer from "@/app/components/footer";
-import Header from "@/app/components/header";
 import Providers from "@/app/components/Providers";
 
 export const metadata: Metadata = {
@@ -73,11 +71,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${oxanium.variable} ${montserrat.variable}`}>
-      <body className="bg-black text-yellow">
+      <body>
         <Providers>
-          <Header />
+          {/*<Header />*/}
           <main>{children}</main>
-          <Footer />
+        {/*<Footer />*/}
         </Providers>
       </body>
     </html>
